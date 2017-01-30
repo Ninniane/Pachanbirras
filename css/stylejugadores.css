@@ -1,0 +1,223 @@
+
+
+body, html{
+background: url("../images/fifa2.jpeg") no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+
+
+#carlos, #victor {
+	margin-left: 42%;
+
+}
+
+#javi, #alex, #miguel, #roberto {
+margin-left: 6.5%;
+}
+
+.trans{
+background: url("../images/campo.jpeg") no-repeat center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+margin-top: 15%;
+    }
+
+
+
+.h1cabecera {
+	font-size: 2.3em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	text-align: center;
+	font-weight: 300;
+}
+
+	
+	#main-header a {
+		color: #ffee00;
+	}
+ 
+
+#main-header {
+	background: #333;
+	height: 80px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+	z-index: 100;
+}
+
+/*Logo*/
+#logo-header {
+	float: left;
+	padding: 10px 0 0 20px;
+	text-decoration: none;
+}
+	#logo-header:hover {
+		color: #0b76a6;
+	}
+	
+	#logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+	
+	#logo-header .site-desc {
+		display: block;
+		font-weight: 300;
+		font-size: 0.8em;
+		color: #ffee00;
+	}
+	
+ 
+/*Navegación*/
+nav {
+	float: right;
+	font-size: 16px;
+	line-height: 80px;
+	box-shadow: none;
+}
+	nav ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		padding-right: 20px;
+	}
+	
+		nav ul li {
+			display: inline-block;
+			line-height: 80px;
+		}
+			
+			nav ul li a {
+				display: block;
+				padding: 0 10px;
+				text-decoration: none;
+			}
+			
+				nav ul li a:hover {
+					background: #0b76a6;
+				}
+
+
+
+
+@media (max-width: 830px) {
+nav {
+	font-size: 13px;
+}
+header img {
+	width: 60px;
+	height: 60px;
+}
+}
+
+@media (max-width: 733px) {
+nav {
+	font-size: 11px;
+}
+header img {
+	width: 55px;
+	height: 55px;
+}
+#main-header {
+	height: 70px;
+}
+}
+
+@media (max-width: 650px) {
+nav {
+	font-size: 10px;
+}
+header img {
+	width: 50px;
+	height: 50px;
+}
+#main-header {
+	height: 67px;
+}
+}
+
+@media (max-width: 532px) {
+nav {
+	font-size: 9px;
+}
+header img {
+	width: 48px;
+	height: 48px;
+
+}
+#main-header {
+	height: 63px;
+}
+}
+
+
+@media (max-width: 597px) {
+nav {
+	font-size: 8px;
+}
+header img {
+	width: 38px;
+	height: 38px;
+
+}
+#main-header {
+	height: 50px;
+}
+}
+
+
+@media (max-width: 516px) {
+nav {
+	font-size: 7px;
+}
+header img {
+	width: 36px;
+	height: 36px;
+
+}
+#main-header {
+	height: 48px;
+}
+}
+
+
+@media (max-width: 485px) {
+nav {
+	font-size: 6px;
+	padding-right: 0%;
+}
+header img {
+	width: 34px;
+	height: 34px;
+
+}
+#main-header {
+	height: 45px;
+}
+}
+
+
+@media (max-width: 446px) {
+nav {
+	font-size: 5px;
+	padding-right: 0%;
+}
+header img {
+	width: 34px;
+	height: 34px;
+
+}
+#main-header {
+	height: 45px;
+}
+}

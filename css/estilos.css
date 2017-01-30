@@ -1,0 +1,201 @@
+
+.Entrar{
+  position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center; color:#ffee00;
+}
+
+body, html { 
+    background-image: url("../images/fifa3.jpeg"); 
+    background-size: 100%;
+}
+
+.prueba {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center; color:#ffee00;
+    display:none;
+    cursor: default;
+}
+
+a { cursor: pointer; color:#ffee00; text-decoration: none; }
+a:hover{color:steelblue;}
+
+
+
+/*------MEDIA QUERY------*/
+@media (min-width: 1360px) {
+    h1{
+        font-size: 600%; margin-top: -1%;
+    }
+    h2{
+        font-size:250%;
+    }
+  }
+
+
+@media (max-width: 1360px) {
+    h1{
+        font-size: 600%; margin-top: -2%; 
+    }
+    h2{
+        font-size: 250%
+    }
+    img{
+        width: 80px; height: 80px;
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+  }
+
+@media (max-width: 1230px) {
+    h1{
+        font-size: 530%
+    }
+    h2{
+        font-size: 250%
+    }
+  img{
+        width: 70px; height: 70px;
+        margin-top: 105px;
+        margin-left: 50px;
+    }
+  }
+
+  @media (max-width: 1040px) {
+    h1{
+        font-size: 530%
+    }
+    h2{
+        font-size: 250%
+    }
+  img{
+        width: 70px; height: 70px;
+        margin-top: 105px;
+        margin-left: 50px;
+    }
+  }
+
+@media (max-width: 940px) {
+    h1{
+        font-size: 500%
+    }
+    h2{
+        font-size: 200%
+    }
+    img{
+        width: 65px; height: 65px;
+        margin-top: 150px;
+        margin-left: 50px;
+    }
+  }
+
+
+@media (max-width: 800px) {
+    h1{
+        font-size:400%; margin-top: -1%;
+    }
+    h2{
+        font-size: 150%; margin-top: -10%;
+    }
+    img{
+        width: 50px; height: 50px;
+        margin-top: 170px;
+        margin-left: 50px;
+    }
+  }
+
+@media (max-width: 600px) {
+    h1{
+        font-size:300%; margin-top: -1%;
+    }
+    h2{
+        font-size: 120%; margin-top: -6%;
+    }
+    img{
+        width: 50px; height: 50px;
+        margin-top: 205px;
+        margin-left: 58px;
+    }
+  }
+
+@media (max-width: 420px) {
+    h1{
+        font-size:250%; margin-top: -3%;
+    }
+    h2{
+        font-size: 120%; margin-top: -10%;
+    }
+    img{
+        width: 47px; height: 47px;
+        margin-top: 210px;
+        margin-left: 60px;
+    }
+  }
+
+@media (max-width: 350px) {
+    h1{
+        font-size:220%; margin-top: -15%;
+    }
+    h2{
+        font-size: 110%; margin-top: -75;
+    }
+    img{
+        width: 47px; height: 47px;
+        margin-top: 200px;
+        margin-left: 60px;
+    }
+  }
+/*------FIN DE MEDIA QUERY------*/
+
+
+
+
+
+/*------ANIMACIÓN CHAPA------*/
+        @-webkit-keyframes girando {
+            0% { -webkit-transform: rotateY(0deg); margin: -100px auto;}
+            100% { -webkit-transform: rotateY(-360deg);margin: 18% auto;}
+
+
+        }
+        @-moz-keyframes girando {
+            from { -moz-transform: rotateY(0deg);    }
+            to   { -moz-transform: rotateY(-360deg); }
+        }
+
+        #contenedor {
+            -webkit-perspective: 160px;
+            -moz-perspective: 160px;
+            perspective: 160px;
+        }
+            
+
+        #girando {
+                width: 160px;
+                height: 160px;
+                position: relative;
+                color: #fff;
+                -webkit-animation-name: girando;
+                -moz-animation-name: girando;
+                animation-name: girando;
+                -webkit-animation-timing-function: ease-out;
+                -moz-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+                -webkit-animation-iteration-count: 1;
+                -moz-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+                -webkit-animation-duration: 4s;
+                -moz-animation-duration: 4s;
+                animation-duration: 4s;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                animation-fill-mode: forwards;
+              }
