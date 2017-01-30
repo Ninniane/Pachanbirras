@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8" />
+  <title>Pachanbirras Ortiz</title>
+
+  <!--FullCalendar Dependencies-->
+  <link href='css/calendarnuevo.css' rel='stylesheet' type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/stylecalendar.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.css" />
+  <link rel="shortcut icon" type="image/png" href="images/logo1.png" />
+  
+  <!--jQuery-->
+  <script src='js/jquery-2.1.1.min.js'></script>
+  <script src="js/jquery-ui-1.10.min.js"></script>
+  
+  <!--FullCalendar-->
+  <script src='js/fullcalendar.min.js'></script>
+  <script src='js/calendar2.js'></script>
+  <script type="text/javascript">
+    
+    /*
+      jQuery document ready
+    */
+    
+    $(document).ready(function()
+    {
+      /*
+        date store today date.
+        d store today date.
+        m store current month.
+        y store current year.
+      */
+      var date = new Date();
+      var d = date.getDate();
+      var m = date.getMonth();
+      var y = date.getFullYear();
+      
+      /*
+        Initialize fullCalendar and store into variable.
+        Why in variable?
+        Because doing so we can use it inside other function.
+        In order to modify its option later.
+      */
+      
+      var calendar = $('#calendar').fullCalendar(
+      {
+        /*
+          header option will define our calendar header.
+          left define what will be at left position in calendar
+          center define what will be at center position in calendar
+          right define what will be at right position in calendar
+        */
+        header:
+        {
+          left: 'prev,next today',
+          center: 'title'
+       
+        },
+        /*
+          defaultView option used to define which view to show by default,
+          for example we have used agendaWeek.
+        */
+        defaultView: 'month',
+        editable: false,
+        /*
+          selectable:true will enable user to select datetime slot
+          selectHelper will add helpers for selectable.
+        */
+        selectable: false,
+        selectHelper: true,
+        firstDay: 1,
+        /*
+          when user select timeslot this option code will execute.
+          It has three arguments. Start,end and allDay.
+          Start means starting time of event.
+          End means ending time of event.
+          allDay means if events is for entire day or not.
+        */
+        select: function(start, end, allDay)
+        {
+          /*
+            Comento la línea en que podríamos añadir eventos en local mediante un prompt.
+          */
+
+
+          // var title = alert('No hay eventos para el día seleccionado');
+
+
+          /*
+            if title is enterd calendar will add title and event into fullCalendar.
+          */
+          if (title)
+          {
+            calendar.fullCalendar('renderEvent',
+              {
+                title: title,
+                start: start,
+                end: end,
+                allDay: allDay
+              },
+              true // make the event "stick"
+
+            );
+          }
+          calendar.fullCalendar('unselect');
+        },
+        /*
+          editable: true allow user to edit events.
+        */
+
+        eventClick: function (calEvent) {
+
+            $("#dialog").dialog({
+                autoOpen: false,
+
+            });
+
+            $('#title').text(calEvent.title);
+
+            $('#description').text(calEvent.description);
+
+            $('#dialog').dialog('open');
+        },
+
+        /*
+          events is the main option for calendar.
+          for demo we have added predefined events in json object.
+        */
+        events: [
+          {
+            title: 'PACHANGA',
+            start: new Date(2016, 10, 28),
+            description: 'Partido aplazado contra CDK. Pachanga en E. Mas a las 21:00',
+            textColor: 'white',
+            backgroundColor: 'gray'
+
+          },
+          {
+            title: 'PACHANGA',
+            start: new Date(2016, 11, 12),
+            textColor: 'white',
+            backgroundColor: 'gray',
+            description: 'Partido aplazado contra Fecron. Pachanga en E. Mas a las 20:00'
+            //end: new Date(y, m, d-2)
+          },
+          {
+            title: '21:00 - REE-CDK GLOBAL SPAIN',
+            start: new Date(2016, 11, 12),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d-2)
+          },
+          {
+            title: '20:00 - NORMON-ALAMO CONSULTING',
+            start: new Date(2016, 11, 20),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga. RESULTADO 2-1'
+            //end: new Date(y, m, d-2)
+          },
+          {
+            title: '19:00 -	ADS CRISA-BAR PICAZO',
+            start: new Date(2016, 11, 14),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d-2)
+          },
+          {
+            title: '20:00 -CRISA FABRICACION-RSI',
+            start: new Date(2016, 11, 15),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d-2)
+          },
+         /* {
+            id: 999,
+            title: 'Repeating Event',
+            start: new Date(y, m, d+4, 16, 0),
+            allDay: false
+          },*/
+            /* {
+            title: 'Click for Google',
+            start: new Date(y, m, 28),
+            end: new Date(y, m, 29),
+            url: 'http://google.com/'
+          }*/
+          {
+            title: '21:00- CDK GLOBAL-PACHANBIRRAS',
+            start: new Date(2016, 11, 19),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de liga aplazado. GANAMOS!! RESULTADO 3-4'
+            //allDay: false
+          },
+          {
+            title: '20:00 -	REE-ADS CRISA',
+            start: new Date(2016, 11, 19),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de liga aplazado. RESULTADO 2-3'
+            //end: new Date(y, m, d-2)
+          },
+          {
+            title: '20:00-	MORALEJA-PACHANBIRRAS',
+            start: new Date(2017, 0, 10),
+            textColor: 'black',
+            backgroundColor: '#08EE04',
+            description: 'Partido de copa. GANAMOS! RESULTADO:1-5',
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '19:00-	ADS CRISA-NONAME SPORT',
+            start: new Date(2017, 0, 11),
+            textColor: 'black',
+            backgroundColor: '#81F67E',
+            description: 'Partido de copa. Eliminatoria directa. RESULTADO:4-3',
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-CDK-CRISA FABRICACION',
+            start: new Date(2017, 0, 12),
+            textColor: 'black',
+            backgroundColor: '#81F67E',
+            description: 'Partido de copa. Eliminatoria directa.',
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-	BAR PICAZO-REE',
+            start: new Date(2017, 0, 12),
+            textColor: 'black',
+            backgroundColor: '#81F67E',
+            description: 'Partido de copa. Eliminatoria directa.',
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-FECRON UTD-REE',
+            start: new Date(2017, 0, 16),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-	CRISA FABRICACION-PACHANBIRRAS',
+            start: new Date(2017, 0, 16),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga. GANAMOS! RESULTADO 4-3'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '19:00-	RSI-BAR PICAZO',
+            start: new Date(2017, 0, 18),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-MORALEJA-ADS CRISA',
+            start: new Date(2017, 0, 19),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-ALAMO CONSULTING-NONAME SPORT',
+            start: new Date(2017, 0, 19),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-CDK GLOBAL-NORMON',
+            start: new Date(2017, 0, 17),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- PACHANBIRRAS-RSI',
+            start: new Date(2017, 0, 23),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-NONAME SPORT- CDK GLOBAL',
+            start: new Date(2017, 0, 23),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- REE - CRISA FABRICACION',
+            start: new Date(2017, 0, 24),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '19:00- NORMON - FECRON UTD',
+            start: new Date(2017, 0, 25),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- ADS CRISA - ALAMO CONSULTING',
+            start: new Date(2017, 0, 26),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- BAR PICAZO - MORALEJA',
+            start: new Date(2017, 0, 26),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- 	PACHANBIRRAS-REE TRES CANTOS',
+            start: new Date(2017, 0, 30),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga',
+                        //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- FECRON - NONAME SPORT',
+            start: new Date(2017, 0, 30),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- RSI - MORALEJA',
+            start: new Date(2017, 0, 31),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+
+          {
+            title: '19:00- CRISA FABRICACION - NORMON',
+            start: new Date(2017, 1, 1),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- CDK GLOBAL - ADS CRISA',
+            start: new Date(2017, 1, 2),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- ALAMO - BAR PICAZO',
+            start: new Date(2017, 1, 2),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- REE - RSI',
+            start: new Date(2017, 1, 6),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- MORALEJA - ALAMO',
+            start: new Date(2017, 1, 6),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- NORMON-PACHANBIRRAS',
+            start: new Date(2017, 1, 7),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '19:00- ADS CRISA - FECRON UTD',
+            start: new Date(2017, 1, 8),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- NONAME - CRISA FABRICACION',
+            start: new Date(2017, 1, 9),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- BAR PICAZO - CDK GLOBAL',
+            start: new Date(2017, 1, 9),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- RSI - ALAMO',
+            start: new Date(2017, 1, 13),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- NONAME SPORT-PACHANBIRRAS',
+            start: new Date(2017, 1, 13),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- BAR PICAZO - FECRON UTD',
+            start: new Date(2017, 1, 14),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '19:00- NORMON - REE-TRES CANTOS',
+            start: new Date(2017, 1, 15),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- MORALEJA - CDK GLOBAL',
+            start: new Date(2017, 1, 16),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- 	ADS CRISA - CRISA FABRICACION',
+            start: new Date(2017, 1, 16),
+            textColor: 'white',
+            backgroundColor: '#9A14CB',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- PACHANBIRRAS-ADS CRISA',
+            start: new Date(2017, 1, 20),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- BAR PICAZO-PACHANBIRRAS',
+            start: new Date(2017, 1, 28),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-	PACHANBIRRAS-MORALEJA-REE',
+            start: new Date(2017, 2, 6),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-	ALAMO CONSULTING-PACHANBIRRAS',
+            start: new Date(2017, 2, 13),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-	PACHANBIRRAS-CDK GLOBAL SPAIN',
+            start: new Date(2017, 2, 27),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- FECRON UTD-PACHANBIRRAS',
+            start: new Date(2017, 3, 3),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00- PACHANBIRRAS-CRISA FABRICACION',
+            start: new Date(2017, 3, 24),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00- RSI-PACHANBIRRAS',
+            start: new Date(2017, 4, 8),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '21:00-REE-PACHANBIRRAS',
+            start: new Date(2017, 4, 22),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-PACHANBIRRAS-NORMON',
+            start: new Date(2017, 5, 1),
+            textColor: 'black',
+            backgroundColor: '#ffee00',
+            description: 'Partido de Liga'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-ALAMO CONSULTING-PACHANBIRRAS',
+            start: new Date(2017, 5, 6),
+            textColor: 'black',
+            backgroundColor: '#08EE04',
+            description: 'Octavos de Copa. Eliminatoria directa.'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: '20:00-????-PACHANBIRRAS',
+            start: new Date(2017, 5, 12),
+            textColor: 'black',
+            backgroundColor: '#08EE04',
+            description: 'Semifinales de Copa. Eliminatoria directa.'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+           {
+            title: '20:00-ADS CRISA - PACHANBIRRAS',
+            start: new Date(2017, 5, 20),
+            textColor: 'black',
+            backgroundColor: '#08EE04',
+            description: 'Final de la Copa. Polideportivo de la Luz'
+            //end: new Date(y, m, d, 14, 0),
+            //allDay: false
+          },
+          {
+            title: 'Cumpleaños de Dani ¡¡FELICIDADES!!',
+            start: new Date(2017, 0, 29),
+            //end: new Date(y, m, d+1, 22, 30),
+            allDay: true,
+            //url: 'jugadores.html',
+            textColor: 'white',
+            backgroundColor: '#F71D57',
+            description: '¡¡FELICIDADES!! Por tus ' + (y-1985) + ' años'
+          },
+          {
+            title: 'Cumpleaños de José Fer ¡¡FELICIDADES!!',
+            start: new Date(2017, 1, 24),
+            //end: new Date(y, m, d+1, 22, 30),
+            allDay: true,
+            //url: 'jugadores.html',
+            textColor: 'white',
+            backgroundColor: '#F71D57',
+            description: '¡¡FELICIDADES!! Por tus ' + (y-1986) + ' años'
+          },
+          {
+            title: 'Cumpleaños de Choche ¡¡FELICIDADES!!',
+            start: new Date(2017, 9, 2),
+            //end: new Date(y, m, d+1, 22, 30),
+            allDay: true,
+            //url: 'jugadores.html',
+            textColor: 'white',
+            backgroundColor: '#F71D57',
+            description: '¡¡FELICIDADES!!'
+          },
+          {
+            title: 'Cumpleaños de Jorge ¡¡FELICIDADES!!',
+            start: new Date(2017, 10, 7),
+            //end: new Date(y, m, d+1, 22, 30),
+            allDay: true,
+            //url: 'jugadores.html',
+            textColor: 'white',
+            backgroundColor: '#F71D57',
+            description: '¡¡FELICIDADES!! Por tus ' + (y-1979) + ' años'
+          },
+          {
+            title: 'Cumpleaños del Presi ¡¡FELICIDADES!!',
+            start: new Date(2017, 8, 13),
+            //end: new Date(y, m, d+1, 22, 30),
+            allDay: true,
+            //url: 'jugadores.html',
+            textColor: 'white',
+            backgroundColor: '#F71D57',
+            description: '¡¡FELICIDADES!! Por tus ' + (y-1980) + ' años'
+          },
+
+        ]
+
+      });
+      
+    });
+
+  </script>
+  <style type="text/css">
+    body
+    {
+      margin-top: 10%;
+      text-align: center;
+      font-size: 14px;
+      font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    }
+    #calendar
+    {
+      width: 900px;
+      margin: 0% auto;
+    }
+  </style>
+</head>
+<body>
+
+<!--CABECERA-->
+  <header id="main-header">
+    <a id="logo-header" href="clasificacion.html">
+      <img src="images/resized.png" />
+    </a> <!-- / #logo-header -->
+
+	<!-- NAV -->
+    <nav>
+      <ul>
+        <li><a id="origen1" href="clasificacion.html">Clasificación</a></li>
+        <li><a id="origen" href="clasificacion.html">Resultados</a></li>
+        <li><a href="jugadores.html">Jugadores</a></li>
+        <li><a href="#">Estrellas Semanales</a></li>
+        <li><a href="#">PachanOcio</a></li>
+        <li><a href="videos.html">Highlights</a></li>
+        <li><a href="calendarionuevo.html">Calendario</a></li>
+      </ul>
+    </nav>
+
+  <!-- / NAV -->
+  </header>
+
+  <!--FullCalendar container div-->
+  <div id='calendar'></div>
+
+  <div id="dialog" title="Evento" style="display:none">
+      <h2>Título</h2>
+      <span id="title"></span>
+      <h3>Descripción</h3>
+      <span id="description"></span>
+  </div>
+
+  <div id="vacio"></div>
+
+<br/>
+<br/>
+
+  <!--Leyenda-->
+  <div class="leyenda">
+<table cellspacing="8px">
+	<tbody>
+		<tr>
+			<td bgcolor="#ffee00" width="30px" height="25px"></td>
+			<td align="left" style="color:#ffee00" style="font-size: 110%"><b>Partido de Liga de los Pachanbirras</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#9A14CB" width="30px" height="25px"></td>
+			<td align="left" style="color:#9A14CB" style="font-size: 110%"><b>Partido de Liga del resto de equipos</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#08EE04" width="30px" height="25px"></td>
+			<td align="left" style="color:#08EE04" style="font-size: 110%"><b>Partido de Copa de los Pachanbirras</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#81F67E" width="30px" height="25px"></td>
+			<td align="left" style="color:#81F67E" style="font-size: 110%"><b>Partido de Copa resto de equipos</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="gray" width="30px" height="25px"></td>
+			<td align="left" style="color:gray" style="font-size: 110%"><b>Pachanga</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#F71D57" width="30px" height="25px"></td>
+			<td align="left" style="color:#F71D57" style="font-size: 110%"><b>Cumpleaños</b></td>
+		</tr>
+
+	</tbody>
+
+</table>
+ </div>
+ 
+  <!--Footer-->
+  <footer id="footer">
+
+    <p>Pachanbirras en las Redes</p>
+
+    <div id="redessociales">
+
+      <a href="https://www.youtube.com/channel/UCSyMmu8KdXxc46lImxGk_6A" target="blank">
+        <img src="images/youtube.ico" title="Youtube" alt="Youtube" />
+
+      </a>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pachanbirras Ortiz</title>
+
+  <script src="jquery-2.1.1.min.js" type="text/javascript"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/nav.css" >
+  <link rel="shortcut icon" type="image/png" href="images/logo1.png" />
+
+
+</head>
+<body>
+
+  <!--CABECERA-->
+  <header class="page-header">
+    <div>
+      <a class="logo" href="#"><img src="images/resized.png" alt="Pachanbirras Logo" id="logo-header" href="clasificacion.html"></a>
+      <span class="toggle-nav">Menu</span>
+    </div>
+
+    <div class="center-contents">
+      
+      <nav class="page-nav collapse">
+        <ul class="navegador">
+          <li><a id="origen1" href="clasificacion.html">Clasificación</a></li>
+          <li><a id="origen" href="clasificacion.html">Resultados</a></li>
+          <li><a href="jugadores.html">Jugadores</a></li>
+          <li><a href="#">Estrellas Semanales</a></li>
+          <li><a href="#" class="desplegable">PachanOcio</a></li>
+          <ul class="subnavegador">
+            <li><a href="#">Pachanrecidos Razonables</a></li>
+          </ul>
+          <li><a href="videos.html">Highlights</a></li>
+          <li><a href="calendarionuevo.html">Calendario</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!--FIN DE CABECERA-->
+
+
+  <div id="wrap">
+
+    <div id="container">
+
+      <header id="header">
+
+        <h1 class="titulo">VIDEOS Y HIGHLIGHTS</h1>
+
+        <div id="animation-header">
+
+        </div>  
+
+      </header>
+
+
+
+      <div id="highlights">
+
+        <div id="videos1">
+
+
+          <iframe class="primeralinea" src="https://www.youtube.com/embed/JWnoK_ARIB0" frameborder="1" allowfullscreen></iframe>"
+
+          <iframe class="primeralinea" src="https://www.youtube.com/embed/mO56bcSi6T4" frameborder="1" allowfullscreen></iframe>
+
+          <iframe  class="primeralinea" src="https://www.youtube.com/embed/uXD-v2BLUfE" frameborder="1" allowfullscreen></iframe>
+
+          <iframe class="segundalinea" src="https://www.youtube.com/embed/zg7GtAdcVYg" frameborder="1" allowfullscreen></iframe>
+
+          <iframe class="segundalinea" src="https://www.youtube.com/embed/C-lo3OIAas8" frameborder="1" allowfullscreen></iframe>
+
+          <iframe class="segundalinea" src="https://www.youtube.com/embed/V56CjeTV1aQ" frameborder="1" allowfullscreen></iframe>
+
+
+        </div>
+        <footer id="footer">
+
+          <p>Pachanbirras en las Redes</p>
+
+          <div id="redessociales">
+
+            <a href="https://www.youtube.com/channel/UCSyMmu8KdXxc46lImxGk_6A" target="blank">
+              <img src="images/youtube.ico" title="Youtube" alt="Youtube" />
+
+            </a>
+
+          </div>
+
+        </footer>
+      </div>
+    </div>
+
+    <script>
+
+      function toggleNavigation(){
+        $('.page-header').toggleClass('menu-expanded');
+        $('.page-nav').toggleClass('collapse');
+      }
+      
+    // EVENTOS DEL DOM
+    $(window).on('load',function(){
+      $('.toggle-nav').click(toggleNavigation);
+    });
+
+    $(document).ready(function(){ 
+      $(".subnavegador").hide();
+      $(".desplegable").toggle(
+        function() { 
+          $(this).parent().find(".subnavegador").slideDown('fast');
+        },
+        function() {  
+          $(this).parent().find(".subnavegador").slideUp('fast');
+        }       
+        );
+      
+    });
+  </script>
+
+
+  
+</body>
+</html>
