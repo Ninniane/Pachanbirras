@@ -38,7 +38,15 @@
     font-size: 300%;
   }
 
-
+  /*ANIMACIÓN DEL HEADER*/
+  @keyframes animation {
+    0% {width: 0; background-color: #ffc; box-shadow: 1px 1px 1px #f0f0f0;}
+    20% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
+    40% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
+    60% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
+    80% {background-color: #ffee00; box-shadow: 1px 1px 1px #f0f0f0;}
+    100% {width: 100%; background-color: #ffee00; box-shadow: 1px 1px 1px #f0f0f0;}
+  } 
 
   #animation-header {
     float: left;
@@ -49,24 +57,6 @@
     -o-animation: animation 5s linear 3s infinite;
   }
 
-
-
-
-
-  iframe {
-    float: left;
-    width: 100%;
-  }
-
-
-  #highlights {
-    float: left;
-    width: 92%;
-    margin: 0% 0 10% 2%;
-    padding: 2%;
-    background-color: black;
-    overflow: hidden;
-  }
 
 
 
@@ -99,9 +89,6 @@
     border-radius: 30px;
   }
 
-  iframe {
-    width: 26%;
-  }
 
   #videos1 {
     margin-left: 10%;
@@ -118,18 +105,23 @@
     margin-bottom: 2%;
   }
 
+  iframe {
+    float: left;
+    width: 100%;
+  }
 
 
+  #highlights {
+    float: left;
+    width: 92%;
+    margin: 0% 0 10% 2%;
+    padding: 2%;
+    background-color: black;
+    overflow: hidden;
+  }
 
-  /*ANIMACIÓN DEL HEADER*/
-  @keyframes animation {
-    0% {width: 0; background-color: #ffc; box-shadow: 1px 1px 1px #f0f0f0;}
-    20% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
-    40% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
-    60% {background-color: #3333CC; box-shadow: 1px 1px 1px #f0f0f0;}
-    80% {background-color: #ffee00; box-shadow: 1px 1px 1px #f0f0f0;}
-    100% {width: 100%; background-color: #ffee00; box-shadow: 1px 1px 1px #f0f0f0;}
-  } 
+
+  
 
 
   /*CABECERA*/
@@ -137,7 +129,7 @@
     overflow: hidden;
     background: #333;
     padding: 0.5em 0 0 ;
-    height: 3.2em;
+    height: 4em;
     font-family: Georgia, Arial, Helvetica, Verdana;
 
   }
@@ -159,10 +151,9 @@
 
   .logo img{
     margin-top: -0.2em;
-    width: 70%;
+    width: 100%;
 
   }
-
 
 
   .page-nav{
