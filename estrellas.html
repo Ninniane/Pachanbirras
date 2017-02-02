@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Pachanbirras Ortiz</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" /> 
+	<link href="css/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="shortcut icon" type="image/png" href="images/logo1.png" />
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+
+	<!--CABECERA-->
+	<header id="main-header">
+
+		<a id="logo-header" href="clasificacion.html">
+			<img src="images/resized.png" />
+		</a> <!-- / #logo-header -->
+
+		<nav>
+			<ul>
+				<li><a id="origen1" href="#">Clasificación</a></li>
+				<li><a id="origen" href="#">Resultados</a></li>
+				<li><a href="jugadores.html">Jugadores</a></li>
+				<li><a href="#">Estrellas Semanales</a></li>
+				<li><a href="#">PachanOcio</a></li>
+				<li><a href="videos.html">Highlights</a></li>
+				<li><a href="calendarionuevo.html">Calendario</a></li>
+			</ul>
+		</nav><!-- / nav -->
+
+	</header>
+
+
+	<div id="wrap">
+
+		<div id="container">
+
+			<header id="header">
+
+				<h1>ESTRELLAS SEMANALES</h1>
+
+				<div id="animation-header">
+
+				</div>	
+
+			</header>
+
+			<div id="sinopsis">
+
+
+				<div id="ficha-tecnica">
+
+					<!-- Accordion -->
+					<h2 class="demoHeaders">Accordion</h2>
+					<div id="accordion">
+
+						<h3>Jornada 10: 23-26 Enero 2017</h3>
+						<center>
+						<div>
+							<div class="inBlock">
+								<img src="images/cromos/heroe1.png" id="cromoUno">
+							</div>
+							<div class="inBlock">
+							
+								<img src="images/cromos/heroe1.png" id="cromoDos">
+
+							</div>
+							<div class="inBlock">
+								<img src="images/cromos/heroe1.png" id="cromoTres">
+							</div>
+						</div>
+						</center>
+					</div>
+				</div>
+
+				<footer id="footer">
+
+					<p>Pachanbirras en las Redes</p>
+
+					<div id="container-license">
+
+						<a href="https://www.youtube.com/channel/UCSyMmu8KdXxc46lImxGk_6A" target="blank">
+							<img src="images/youtube.ico" title="Youtube" alt="Youtube" />
+
+						</a>
+
+					</div>
+
+				</footer>
+			</div> <!--sinopsis-->
+		</div> <!--container-->
+	</div> <!--wrap-->
+
+	<script type="text/javascript">
+
+		$(function() {
+			$( "#accordion" ).accordion();
+		});
+
+
+		$("#origen").click(function() {
+			$("html, body").animate({scrollTop: $("#destino").offset().top-100}, 2000);
+		});
+
+
+		$("#origen1").click(function() {
+			$("html, body").animate({scrollTop: $("#destino1").offset().top-100}, 2000);
+		});
+
+
+	</script>
+
+</body>
+
+</html>
